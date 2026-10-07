@@ -41,6 +41,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -151,7 +155,7 @@ a:focus-visible {
   text-decoration: underline;
 }
 
-main {
+.page-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 280px;
   align-items: start;
@@ -162,6 +166,28 @@ main {
 
 .main-content {
   min-width: 0;
+}
+
+.breadcrumbs {
+  max-width: var(--container-width);
+  margin: 0 auto var(--space-md);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.breadcrumbs a {
+  color: var(--color-primary);
+}
+
+.breadcrumbs span::before {
+  content: " / ";
+  color: var(--color-muted);
+}
+
+:target {
+  scroll-margin-top: calc(var(--space-xl) + var(--space-xl) + var(--space-xl));
+  outline: 2px dashed var(--color-primary);
+  outline-offset: 4px;
 }
 
 .hero {

@@ -15,7 +15,7 @@
   <script src="js/main.js" defer></script>
 </head>
 
-<body>
+<body id="top">
   <header class="site-header">
     <div class="site-header__inner">
       <a class="site-header__logo" href="index.html">ShopProject</a>
@@ -88,6 +88,55 @@
             </button>
           </article>
         </div>
+      </section>
+      <section class="section reviews" id="reviews" aria-labelledby="reviews-title">
+        <h2 class="section__title" id="reviews-title">Отзывы о проекте</h2>
+        <p class="reviews__intro">Сообщения <b>абсолютно</b> реальных покупателей!</p>
+        <div class="reviews__list">
+          <article class="review-card">
+            <h3 class="review-card__author">Анна</h3>
+            <p class="review-card__rating">Оценка: 5 из 5</p>
+            <p class="review-card__text">Товары легко найти, а форма заказа понятная и короткая.</p>
+          </article>
+          <article class="review-card">
+            <h3 class="review-card__author">Михаил</h3>
+            <p class="review-card__rating">Оценка: 4 из 5</p>
+            <p class="review-card__text">Удобно переходить между каталогом и контактами. Хотелось бы больше товаров.</p>
+          </article>
+          <article class="review-card">
+            <h3 class="review-card__author">Алексей</h3>
+            <p class="review-card__rating">Оценка: 5 из 5</p>
+            <p class="review-card__text">Можно заполнить заявку с клавиатуры, а ошибочные поля заметно выделяются.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section faq" id="faq" aria-labelledby="faq-title">
+        <h2 class="section__title" id="faq-title">Часто задаваемые вопросы</h2>
+        <details class="faq__item">
+          <summary class="faq__question">Можно ли купить товары на этом сайте?</summary>
+          <p class="faq__answer">Это учебный проект. Реальные покупки, платежи и доставка не выполняются.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Как оформить заявку?</summary>
+          <p class="faq__answer">Нажмите «Заказать» у популярного товара на главной странице и заполните открывшуюся форму.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Какие поля нужно заполнить?</summary>
+          <p class="faq__answer">Укажите имя, e-mail, телефон и тему заявки, затем отметьте согласие на обработку данных. Дата и комментарий необязательны.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">В каком формате вводить телефон?</summary>
+          <p class="faq__answer">Используйте формат +7 (900) 000-00-00. Пример также указан под полем телефона.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Куда отправляются данные заявки?</summary>
+          <p class="faq__answer">Данные не отправляются на сервер. Форма проверяет заполнение и показывает сообщение об успешной отправке в рамках демонстрации.</p>
+        </details>
+        <details class="faq__item">
+          <summary class="faq__question">Фильтры каталога уже работают?</summary>
+          <p class="faq__answer">Пока это макет формы: выбор категории и цены не изменяет список товаров.</p>
+        </details>
       </section>
     </div>
 
@@ -166,6 +215,7 @@
     <p class="site-footer__text">&copy; 2026 Учебный проект. Все права защищены.</p>
     <p class="site-footer__text">Дисциплина: Фронтенд и бэкенд разработка</p>
   </footer>
+  <a class="button button--primary back-to-top" href="#top" aria-label="Вернуться к началу страницы">Наверх ↑</a>
 </body>
 
 </html>

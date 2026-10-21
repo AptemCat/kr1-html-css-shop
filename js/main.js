@@ -1,31 +1,34 @@
 // Получаем модальное окно по id.
 const orderDialog = document.getElementById('order-dialog');
 
-// Получаем все кнопки заказа в карточках товаров.
-const orderButtons = document.querySelectorAll('.product-card__button');
+// Получаем кнопки заявки после вывода карточек и анкеты скриптом shop.js.
+const orderButtons = document.querySelectorAll('button[data-product]');
 
 // Получаем кнопку закрытия модального окна.
 const closeDialogButton = document.getElementById('close-order-dialog');
 
-// Получаем скрытое поле, в которое будет записан выбранный товар.
+// Получаем скрытое поле для имени выбранной крысы.
 const selectedProductInput = document.getElementById('selected-product');
 
-// Перебираем все кнопки «Заказать».
+// На странице с неизвестной крысой кнопок заявки и формы нет.
+// Ссылки «Подробнее» не участвуют в открытии модального окна.
 orderButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    // Получаем название товара из data-атрибута.
+    // Получаем имя крысы из data-атрибута.
     const productName = button.dataset.product;
 
-    // Записываем название товара в скрытое поле формы.
+    // Записываем имя крысы в скрытое поле формы.
     selectedProductInput.value = productName;
 
     // Открываем модальное окно.
+    if (successMessage) successMessage.hidden = true;
+    orderForm.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid'));
     orderDialog.showModal();
   });
 });
 
 // Закрываем модальное окно по кнопке «Закрыть».
-closeDialogButton.addEventListener('click', () => {
+closeDialogButton?.addEventListener('click', () => {
   orderDialog.close();
 });
 
@@ -36,7 +39,7 @@ const orderForm = document.getElementById('order-form');
 const successMessage = document.getElementById('success-message');
 
 // Обрабатываем отправку формы.
-orderForm.addEventListener('submit', (event) => {
+orderForm?.addEventListener('submit', (event) => {
   // Отменяем стандартную отправку формы,
   // потому что backend пока не подключён.
   event.preventDefault();
@@ -65,6 +68,7 @@ orderForm.addEventListener('submit', (event) => {
 
   // Показываем сообщение об успешной отправке.
   successMessage.hidden = false;
+  successMessage.textContent = `Заявка на крысу «${selectedProductInput.value}» оформлена. Данные не отправлены на сервер.`;
 
   // Очищаем форму.
   orderForm.reset();
